@@ -1,6 +1,5 @@
 # data + models (don’t upload large files)
 data/
-models/
 
 # python/cache
 __pycache__/
