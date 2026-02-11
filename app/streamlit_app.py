@@ -2,13 +2,23 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-st.set_page_config(page_title="AI Insurance Risk Platform", layout="centered")
-st.title("AI Insurance Risk Platform")
+st.set_page_config(
+    page_title="QuoteGuard",
+    page_icon="🛡️",
+    layout="wide"
+)
 
-page = st.sidebar.selectbox("Module", ["Underwriting Risk Predictor", "Claims Fraud Predictor"])
+st.title("🛡️ QuoteGuard")
+st.caption("AI-powered underwriting cost prediction and claims risk intelligence.")
+st.divider()
+tab_underwriting, tab_claims = st.tabs(["🧾 Underwriting", "🕵️ Claims Intelligence"])
 
-if page == "Underwriting Risk Predictor":
+with tab_underwriting:
+    left, right = st.columns([1,1])
     st.header("Underwriting: Predict Expected Annual Cost")
+    st.subheader("Underwriting Risk Assessment")
+
+
 
     model = joblib.load("models/underwriting_model.pkl")
 
@@ -76,9 +86,9 @@ if page == "Underwriting Risk Predictor":
             st.markdown("### Primary Risk Drivers:")
            
             st.write("• No major elevated risk factors detected")
-elif page == "Claims Fraud Predictor":
+with tab_claims:
     st.header("Claims: Predict Fraud Risk (Y/N)")
-
+    st.subheader("Claims Fraud Intelligence")
     model = joblib.load("models/claims_model.pkl")
 
     st.write("Enter claim details (basic demo fields).")
