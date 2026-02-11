@@ -1,0 +1,15 @@
+# data + models (don’t upload large files)
+data/
+models/
+
+# python/cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# mac
+.DS_Store
+
+# streamlit
+.streamlit/
+
